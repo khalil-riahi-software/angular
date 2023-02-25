@@ -1,0 +1,5 @@
+<div>
+  <!-- Using async pipe subscribes to changes in behavior subject variables -->
+  <p>Logged in: {{ shared.isLogged$ | async }}</p>
+  <p *ngIf="(shared.isLogged$ | async)">Logged in as {{ (shared.isAdmin$ | async) ? "Admin" : "Client" }}</p>
+</div>
