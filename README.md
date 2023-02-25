@@ -1,3 +1,25 @@
+#  Subject
+The Subjects are special observable which acts as both observer & observable. They allow us to emit new values to the observable stream using the next method. All the subscribers, who subscribe to the subject will receive the same instance of the subject & hence the same values.
+![image](https://user-images.githubusercontent.com/8484777/221375637-ce779e33-60ab-4bbd-915b-8505882108da.png)
+
+An Observer can subscribe to the Subject and receive value from it. Subject adds them to its collection observers. Whenever there is a value in the stream it notifies all of its Observers.
+
+# Subject is hot Observable
+Cold observable: The cold observable does not activate the producer until there is a subscriber. This is usually the case when the observable itself produces the data.
+Hot observable
+The hot observable does not wait for a subscriber to emit the data. It can start emitting the values right away. The happens when the producer is outside the observable.
+
+# Subjects are Multicast
+More than one subscriber can subscribe to a subject. They will share the same instance of the observable. This means that all of them receive the same event when the subject emits it.
+Multiple observers of an observable, on the other hand, will receive a separate instance of the observable.
+Unicast :the observers will receive new instance of observable and hence not the same data.
+===>Subjects maintain a list of subscribers
+# There are other types of subjects
+# ReplaySubject: replays old values to new subscribers when they first subscribe.
+The ReplaySubject will store every value it emits in a buffer. It will emit them to the new subscribers in the order it received them. You can configure the buffer using the arguments bufferSize and windowTime
+# BehaviorSubject: is an exact copy of Subject. The only difference is an initial value must be provided while initializing the behavior subject and it provides the latest value right after subscription.
+# AsyncSubject: only emits the latest value only when it completes. If it errors out then it will emit an error, but will not emit any values.
+
 # Behavior Subject Example
 
 Shared Service
